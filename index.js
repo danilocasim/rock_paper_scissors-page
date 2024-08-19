@@ -98,7 +98,7 @@ function playGame() {
     playRound(humanSelection(), computerSelection());
 
     if (humanScore === 3) {
-      alert(`WINNER WINNER CHICKEN DINNER!;
+      alert(`WINNER WINNER CHICKEN DINNER!
 Your Score: ${humanScore}
 Computer Score: ${computerScore}`);
       break;
