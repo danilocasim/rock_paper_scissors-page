@@ -94,20 +94,22 @@ function playGame() {
   humanScore = 0;
   computerScore = 0;
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 5; i++) {
     playRound(humanSelection(), computerSelection());
+  }
 
-    if (humanScore === 3) {
-      alert(`WINNER WINNER CHICKEN DINNER!
+  if (humanScore > computerScore) {
+    alert(`WINNER WINNER CHICKEN DINNER!
 Your Score: ${humanScore}
 Computer Score: ${computerScore}`);
-      break;
-    } else if (computerScore === 3) {
-      alert(`GAME OVER!
+  } else if (humanScore < computerScore) {
+    alert(`GAME OVER!
 Your Score: ${humanScore}
 Computer Score: ${computerScore}`);
-      break;
-    }
+  } else {
+    alert(`WHAT A DRAW!!!
+Your Score: ${humanScore}
+Computer Score: ${computerScore}`);
   }
 }
 playGame();
