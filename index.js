@@ -21,25 +21,27 @@ function playRound(humanChoice, computerChoice) {
         Computer Score ${computerScore}`);
       } else if (computerChoice === "PAPER") {
         console.log("You Lose! Paper beats Rock");
+        computerScore++;
         alert(`You Lose! Paper beats Rock
         Your Score: ${humanScore}
         Computer Score ${computerScore}`);
-        computerScore++;
       } else if (computerChoice === "SCISSORS") {
         console.log("You Win! Rock beats Scissors");
+        humanScore++;
+
         alert(`You Win! Rocks beats Scissors
         Your Score: ${humanScore}
         Computer Score ${computerScore}`);
-        humanScore++;
       }
       break;
     case "PAPER":
       if (computerChoice === "ROCK") {
         console.log("You Win! Paper beats Rock");
+        humanScore++;
+
         alert(`You Win! Paper beats Rock
         Your Score: ${humanScore}
         Computer Score ${computerScore}`);
-        humanScore++;
       } else if (computerChoice === "PAPER") {
         console.log("Draw!");
         alert(`Draw!
@@ -47,25 +49,28 @@ function playRound(humanChoice, computerChoice) {
         Computer Score ${computerScore}`);
       } else if (computerChoice === "SCISSORS") {
         console.log("You Lose! Scissors beats Paper");
+        computerScore++;
+
         alert(`You Lose! Scossors beats Paper
         Your Score: ${humanScore}
         Computer Score ${computerScore}`);
-        computerScore++;
       }
       break;
     case "SCISSORS":
       if (computerChoice === "ROCK") {
         console.log("You Lose! Rock beats Scissors");
+        computerScore++;
+
         alert(`You Lose! Rock beats Scissors
         Your Score: ${humanScore}
         Computer Score ${computerScore}`);
-        computerScore++;
       } else if (computerChoice === "PAPER") {
         console.log("You Win! Scissors beats Paper");
+        humanScore++;
+
         alert(`You Win! Scissors beats Paper
         Your Score: ${humanScore}
         Computer Score ${computerScore}`);
-        humanScore++;
       } else if (computerChoice === "SCISSORS") {
         console.log("Draw!");
         alert(`Draw!
@@ -84,15 +89,20 @@ function playGame() {
   humanScore = 0;
   computerScore = 0;
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 10; i++) {
     playRound(humanSelection(), computerSelection());
-  }
-  if (humanScore === 3) {
-    alert("You Win!!!");
-  } else if (computerScore === 3) {
-    alert("You Lose!!");
-  }
-  alert(`Your Score: ${humanScore}
+
+    if (humanScore === 3) {
+      alert(`WINNER WINNER CHICKEN DINNER!;
+Your Score: ${humanScore}
 Computer Score: ${computerScore}`);
+      break;
+    } else if (computerScore === 3) {
+      alert(`GAME OVER!
+Your Score: ${humanScore}
+Computer Score: ${computerScore}`);
+      break;
+    }
+  }
 }
 playGame();
