@@ -1,14 +1,33 @@
 "use strict";
 
 function getComputerChoice() {
-  let rpsArr = ["ROCK", "PAPER", "SCISSORS"];
-  let randomNum = Math.floor(Math.random() * 3);
-  return rpsArr[randomNum];
+  let rockPaperScissors = ["ROCK", "PAPER", "SCISSORS"];
+  let random = Math.floor(Math.random() * 3);
+  return rockPaperScissors[random];
 }
 
 function getHumanChoice() {
-  let userInput = prompt("(Rock, Paper, Scissors) Pick One:");
-  return userInput.toUpperCase();
+  let userChoice = prompt("(Rock, Paper, Scissors) Pick One:");
+  return userChoice.toUpperCase();
+}
+
+function showTheResult(result, humanChoice, computerChoice) {
+  switch (result) {
+    case "Win":
+      alert(`You Win! ${humanChoice} beats ${computerChoice}
+        "Your Score: ${humanScore}
+        Computer Score: ${computerScore}`);
+      break;
+    case "Lost":
+      alert(`You Lost! ${computerChoice} beats ${humanChoice}
+        Your Score: ${humanScore}
+        Computer Score: ${computerScore}`);
+      break;
+    case "Draw":
+      alert(`Draw!
+        Your Score: ${humanScore}
+        Computer Score: ${computerScore}`);
+  }
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -16,46 +35,30 @@ function playRound(humanChoice, computerChoice) {
     case "ROCK":
       if (computerChoice === "ROCK") {
         console.log("Draw!");
-        alert(`Draw!
-Your Score: ${humanScore}
-Computer Score ${computerScore}`);
+        showTheResult("Draw");
       } else if (computerChoice === "PAPER") {
         console.log("You Lose! Paper beats Rock");
         computerScore++;
-        alert(`You Lose! Paper beats Rock
-Your Score: ${humanScore}
-Computer Score ${computerScore}`);
+        showTheResult("Lost", humanChoice, computerChoice);
       } else if (computerChoice === "SCISSORS") {
         console.log("You Win! Rock beats Scissors");
         humanScore++;
-
-        alert(`You Win! Rocks beats Scissors
-Your Score: ${humanScore}
-Computer Score ${computerScore}`);
+        showTheResult("Win", humanChoice, computerChoice);
       }
-
       break;
 
     case "PAPER":
       if (computerChoice === "ROCK") {
         console.log("You Win! Paper beats Rock");
         humanScore++;
-
-        alert(`You Win! Paper beats Rock
-Your Score: ${humanScore}
-Computer Score ${computerScore}`);
+        showTheResult("Win", humanChoice, computerChoice);
       } else if (computerChoice === "PAPER") {
         console.log("Draw!");
-        alert(`Draw!
-Your Score: ${humanScore}
-Computer Score ${computerScore}`);
+        showTheResult("Draw");
       } else if (computerChoice === "SCISSORS") {
         console.log("You Lose! Scissors beats Paper");
         computerScore++;
-
-        alert(`You Lose! Scossors beats Paper
-Your Score: ${humanScore}
-Computer Score ${computerScore}`);
+        showTheResult("Lost", humanChoice, computerChoice);
       }
 
       break;
@@ -64,24 +67,15 @@ Computer Score ${computerScore}`);
       if (computerChoice === "ROCK") {
         console.log("You Lose! Rock beats Scissors");
         computerScore++;
-
-        alert(`You Lose! Rock beats Scissors
-Your Score: ${humanScore}
-Computer Score ${computerScore}`);
+        showTheResult("Lost", humanChoice, computerChoice);
       } else if (computerChoice === "PAPER") {
         console.log("You Win! Scissors beats Paper");
         humanScore++;
-
-        alert(`You Win! Scissors beats Paper
-Your Score: ${humanScore}
-Computer Score ${computerScore}`);
+        showTheResult("Win", humanChoice, computerChoice);
       } else if (computerChoice === "SCISSORS") {
         console.log("Draw!");
-        alert(`Draw!
-Your Score: ${humanScore}
-Computer Score ${computerScore}`);
+        showTheResult("Draw");
       }
-
       break;
   }
 }
