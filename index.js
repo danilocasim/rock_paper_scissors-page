@@ -30,68 +30,7 @@ function showTheResult(result, humanChoice, computerChoice) {
   }
 }
 
-function playRound(humanChoice, computerChoice) {
-  switch (humanChoice) {
-    case "ROCK":
-      if (computerChoice === "ROCK") {
-        console.log("Draw!");
-        showTheResult("Draw");
-      } else if (computerChoice === "PAPER") {
-        console.log("You Lose! Paper beats Rock");
-        computerScore++;
-        showTheResult("Lost", humanChoice, computerChoice);
-      } else if (computerChoice === "SCISSORS") {
-        console.log("You Win! Rock beats Scissors");
-        humanScore++;
-        showTheResult("Win", humanChoice, computerChoice);
-      }
-      break;
-
-    case "PAPER":
-      if (computerChoice === "ROCK") {
-        console.log("You Win! Paper beats Rock");
-        humanScore++;
-        showTheResult("Win", humanChoice, computerChoice);
-      } else if (computerChoice === "PAPER") {
-        console.log("Draw!");
-        showTheResult("Draw");
-      } else if (computerChoice === "SCISSORS") {
-        console.log("You Lose! Scissors beats Paper");
-        computerScore++;
-        showTheResult("Lost", humanChoice, computerChoice);
-      }
-
-      break;
-
-    case "SCISSORS":
-      if (computerChoice === "ROCK") {
-        console.log("You Lose! Rock beats Scissors");
-        computerScore++;
-        showTheResult("Lost", humanChoice, computerChoice);
-      } else if (computerChoice === "PAPER") {
-        console.log("You Win! Scissors beats Paper");
-        humanScore++;
-        showTheResult("Win", humanChoice, computerChoice);
-      } else if (computerChoice === "SCISSORS") {
-        console.log("Draw!");
-        showTheResult("Draw");
-      }
-      break;
-  }
-}
-const humanSelection = getHumanChoice;
-const computerSelection = getComputerChoice;
-let computerScore;
-let humanScore;
-
-function playGame() {
-  humanScore = 0;
-  computerScore = 0;
-
-  for (let i = 0; i < 5; i++) {
-    playRound(humanSelection(), computerSelection());
-  }
-
+function overallResult(humanScore, computerScore) {
   if (humanScore > computerScore) {
     alert(`WINNER WINNER CHICKEN DINNER!
 Your Score: ${humanScore}
@@ -105,5 +44,69 @@ Computer Score: ${computerScore}`);
 Your Score: ${humanScore}
 Computer Score: ${computerScore}`);
   }
+}
+
+function playRound(humanChoice, computerChoice) {
+  switch (humanChoice) {
+    case "ROCK":
+      if (computerChoice === "ROCK") {
+        console.log("Draw!");
+        showTheResult("Draw");
+      } else if (computerChoice === "PAPER") {
+        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+        computerScore++;
+        showTheResult("Lost", humanChoice, computerChoice);
+      } else if (computerChoice === "SCISSORS") {
+        console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+        humanScore++;
+        showTheResult("Win", humanChoice, computerChoice);
+      }
+      break;
+
+    case "PAPER":
+      if (computerChoice === "ROCK") {
+        console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+        humanScore++;
+        showTheResult("Win", humanChoice, computerChoice);
+      } else if (computerChoice === "PAPER") {
+        console.log("Draw!");
+        showTheResult("Draw");
+      } else if (computerChoice === "SCISSORS") {
+        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+        computerScore++;
+        showTheResult("Lost", humanChoice, computerChoice);
+      }
+
+      break;
+
+    case "SCISSORS":
+      if (computerChoice === "ROCK") {
+        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+        computerScore++;
+        showTheResult("Lost", humanChoice, computerChoice);
+      } else if (computerChoice === "PAPER") {
+        console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+        humanScore++;
+        showTheResult("Win", humanChoice, computerChoice);
+      } else if (computerChoice === "SCISSORS") {
+        console.log("Draw!");
+        showTheResult("Draw");
+      }
+      break;
+  }
+}
+const humanSelection = getHumanChoice;
+const computerSelection = getComputerChoice;
+let humanScore;
+let computerScore;
+
+function playGame() {
+  humanScore = 0;
+  computerScore = 0;
+
+  for (let i = 0; i < 5; i++) {
+    playRound(humanSelection(), computerSelection());
+  }
+  overallResult(humanScore, computerScore);
 }
 playGame();
