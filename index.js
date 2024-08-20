@@ -82,6 +82,7 @@ function showTheResult(result, humanChoice, computerChoice) {
       alert(`Draw!
         Your Score: ${humanScore}
         Computer Score: ${computerScore}`);
+      break;
   }
 }
 
