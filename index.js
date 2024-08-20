@@ -11,41 +11,6 @@ function getHumanChoice() {
   return userChoice.toUpperCase();
 }
 
-function showTheResult(result, humanChoice, computerChoice) {
-  switch (result) {
-    case "Win":
-      alert(`You Win! ${humanChoice} beats ${computerChoice}
-        "Your Score: ${humanScore}
-        Computer Score: ${computerScore}`);
-      break;
-    case "Lost":
-      alert(`You Lost! ${computerChoice} beats ${humanChoice}
-        Your Score: ${humanScore}
-        Computer Score: ${computerScore}`);
-      break;
-    case "Draw":
-      alert(`Draw!
-        Your Score: ${humanScore}
-        Computer Score: ${computerScore}`);
-  }
-}
-
-function overallResult(humanScore, computerScore) {
-  if (humanScore > computerScore) {
-    alert(`WINNER WINNER CHICKEN DINNER!
-Your Score: ${humanScore}
-Computer Score: ${computerScore}`);
-  } else if (humanScore < computerScore) {
-    alert(`GAME OVER!
-Your Score: ${humanScore}
-Computer Score: ${computerScore}`);
-  } else {
-    alert(`WHAT A DRAW!!!
-Your Score: ${humanScore}
-Computer Score: ${computerScore}`);
-  }
-}
-
 function playRound(humanChoice, computerChoice) {
   switch (humanChoice) {
     case "ROCK":
@@ -95,6 +60,42 @@ function playRound(humanChoice, computerChoice) {
       break;
   }
 }
+
+function showTheResult(result, humanChoice, computerChoice) {
+  switch (result) {
+    case "Win":
+      alert(`You Win! ${humanChoice} beats ${computerChoice}
+        "Your Score: ${humanScore}
+        Computer Score: ${computerScore}`);
+      break;
+    case "Lost":
+      alert(`You Lost! ${computerChoice} beats ${humanChoice}
+        Your Score: ${humanScore}
+        Computer Score: ${computerScore}`);
+      break;
+    case "Draw":
+      alert(`Draw!
+        Your Score: ${humanScore}
+        Computer Score: ${computerScore}`);
+  }
+}
+
+function overallResult(humanScore, computerScore) {
+  if (humanScore > computerScore) {
+    alert(`WINNER WINNER CHICKEN DINNER!
+Your Score: ${humanScore}
+Computer Score: ${computerScore}`);
+  } else if (humanScore < computerScore) {
+    alert(`GAME OVER!
+Your Score: ${humanScore}
+Computer Score: ${computerScore}`);
+  } else {
+    alert(`WHAT A DRAW!!!
+Your Score: ${humanScore}
+Computer Score: ${computerScore}`);
+  }
+}
+
 const humanSelection = getHumanChoice;
 const computerSelection = getComputerChoice;
 let humanScore;
