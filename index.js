@@ -1,5 +1,10 @@
 "use strict";
 
+const humanSelection = getHumanChoice;
+const computerSelection = getComputerChoice;
+let humanScore;
+let computerScore;
+
 function getComputerChoice() {
   let rockPaperScissors = ["ROCK", "PAPER", "SCISSORS"];
   let random = Math.floor(Math.random() * 3);
@@ -95,11 +100,6 @@ Your Score: ${humanScore}
 Computer Score: ${computerScore}`);
   }
 }
-
-const humanSelection = getHumanChoice;
-const computerSelection = getComputerChoice;
-let humanScore;
-let computerScore;
 
 function playGame() {
   humanScore = 0;
