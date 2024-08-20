@@ -13,19 +13,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
   let userChoice = prompt("(Rock, Paper, Scissors) Pick One:");
-  userChoice = userChoice.toUpperCase();
-
-  if (
-    userChoice !== "ROCK" ||
-    userChoice !== "PAPER" ||
-    userChoice !== "SCISSORS"
-  ) {
-    userChoice = prompt(
-      "Try Again. Pick the appropriate ability: (Rock, Paper, Scissors)"
-    );
-    return userChoice.toUpperCase();
-  }
-  return userChoice;
+  return userChoice.toUpperCase();
 }
 
 function playRound(humanChoice, computerChoice) {
