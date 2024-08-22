@@ -7,7 +7,7 @@ let computerScore;
 
 function getComputerChoice() {
   let rockPaperScissors = ["ROCK", "PAPER", "SCISSORS"];
-  let random = Math.floor(Math.random() * 3);
+  let random = Math.floor(Math.random() * rockPaperScissors.length);
   return rockPaperScissors[random];
 }
 
