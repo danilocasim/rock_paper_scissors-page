@@ -108,6 +108,6 @@ function playGame() {
   for (let i = 0; i < 5; i++) {
     playRound(humanSelection(), computerSelection());
   }
-  overallResult(humanScore, computerScore);
+  showOverallResult(humanScore, computerScore);
 }
 playGame();
