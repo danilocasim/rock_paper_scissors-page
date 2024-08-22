@@ -85,7 +85,7 @@ function showTheResult(result, humanChoice, computerChoice) {
   }
 }
 
-function overallResult(humanScore, computerScore) {
+function showOverallResult(humanScore, computerScore) {
   if (humanScore > computerScore) {
     alert(`WINNER WINNER CHICKEN DINNER!
 Your Score: ${humanScore}
