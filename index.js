@@ -1,7 +1,12 @@
 "use strict";
 
 const buttons = document.querySelectorAll("button");
-const result = document.querySelector("div");
+const score = document.querySelector("#score");
+const result = document.querySelector("#currentResult");
+const overall = document.querySelector("#overallResult");
+
+let computerScore = 0;
+let humanScore = 0;
 
 buttons.forEach((button) => {
   button.addEventListener("click", playRound);
@@ -12,8 +17,6 @@ function getComputerChoice() {
   let random = Math.floor(Math.random() * 3);
   return choices[random];
 }
-let humanScore = 0;
-let computerScore = 0;
 
 function playRound(humanChoice) {
   let userChoice = humanChoice.target.id;
@@ -54,5 +57,12 @@ function playRound(humanChoice) {
         result.textContent = "Draw!";
       }
       break;
+  }
+  score.textContent = `Your Score: ${humanScore}\n
+  Computer Score: ${computerScore}`;
+  if (humanScore >= 5 && humanScore > computerScore) {
+    overall.textContent = "Winner: You Win";
+  } else if (computerScore >= 5 && humanScore < computerScore) {
+    overall.textContent = "Winner: Computer";
   }
 }
