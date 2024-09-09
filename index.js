@@ -11,6 +11,10 @@ const computerSelection = getComputerChoice;
 let humanScore;
 let computerScore;
 
+function getHumanChoice(button) {
+  return button.id;
+}
+
 function getComputerChoice() {
   let rockPaperScissors = ["ROCK", "PAPER", "SCISSORS"];
   let random = Math.floor(Math.random() * rockPaperScissors.length);
