@@ -17,7 +17,7 @@ body {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
 }
 
@@ -46,7 +46,10 @@ button:hover {
 
 .rps-btn {
   display: flex;
-  width: 500px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 400px;
   gap: 24px;
 }
 
@@ -59,11 +62,5 @@ button:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 500px;
   gap: 24px;
-}
-
-.result button {
-  flex: 1;
-  width: 500px;
 }
