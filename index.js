@@ -1,16 +1,33 @@
 "use strict";
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".choices");
 const score = document.querySelector("#score");
 const result = document.querySelector("#currentResult");
 const overall = document.querySelector("#overallResult");
+const tryAgainBtn = document.querySelector("#try-again");
+
+let computerScore = 0;
+let humanScore = 0;
 
 buttons.forEach((button) => {
   button.addEventListener("click", playRound);
 });
 
-let computerScore = 0;
-let humanScore = 0;
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    for (const button of buttons) {
+      if (computerScore >= 5 || humanScore >= 5) {
+        button.disabled = true;
+      }
+    }
+  });
+});
+
+tryAgainBtn.addEventListener("click", () => {
+  buttons.forEach((button) => {
+    button.disabled = false;
+  });
+});
 
 function playRound(humanChoice) {
   let userChoice = humanChoice.target.id;
