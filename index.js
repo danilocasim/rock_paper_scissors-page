@@ -4,7 +4,7 @@ const buttons = document.querySelectorAll(".choices");
 const score = document.querySelector("#score");
 const result = document.querySelector("#currentResult");
 const overall = document.querySelector("#overallResult");
-const tryAgainBtn = document.querySelector("#try-again");
+const resetBtn = document.querySelector("#try-again");
 
 let computerScore = 0;
 let humanScore = 0;
@@ -23,10 +23,10 @@ buttons.forEach((button) => {
   });
 });
 
-tryAgainBtn.addEventListener("click", () => {
+resetBtn.addEventListener("click", () => {
   buttons.forEach((button) => {
     button.disabled = false;
-    tryAgain();
+    reset();
   });
 });
 
@@ -70,6 +70,16 @@ function playRound(humanChoice) {
       }
       break;
   }
+  showScore(humanScore, computerScore);
+}
+
+function getComputerChoice() {
+  const choices = ["rock", "paper", "scissors"];
+  let random = Math.floor(Math.random() * 3);
+  return choices[random];
+}
+
+function showScore(humanScore, computerScore) {
   score.textContent = `Your Score: ${humanScore}\n
   Computer Score: ${computerScore}`;
   if (humanScore >= 5 && humanScore > computerScore) {
@@ -79,13 +89,7 @@ function playRound(humanChoice) {
   }
 }
 
-function getComputerChoice() {
-  const choices = ["rock", "paper", "scissors"];
-  let random = Math.floor(Math.random() * 3);
-  return choices[random];
-}
-
-function tryAgain() {
+function reset() {
   computerScore = 0;
   humanScore = 0;
 
