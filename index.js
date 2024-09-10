@@ -5,20 +5,14 @@ const score = document.querySelector("#score");
 const result = document.querySelector("#currentResult");
 const overall = document.querySelector("#overallResult");
 
-let computerScore = 0;
-let humanScore = 0;
-
 buttons.forEach((button) => {
   button.addEventListener("click", playRound);
 });
 
-function getComputerChoice() {
-  const choices = ["rock", "paper", "scissors"];
-  let random = Math.floor(Math.random() * 3);
-  return choices[random];
-}
-
 function playRound(humanChoice) {
+  let computerScore = 0;
+  let humanScore = 0;
+
   let userChoice = humanChoice.target.id;
   let computerChoice = getComputerChoice();
   switch (userChoice) {
@@ -65,4 +59,10 @@ function playRound(humanChoice) {
   } else if (computerScore >= 5 && humanScore < computerScore) {
     overall.textContent = "Winner: Computer";
   }
+}
+
+function getComputerChoice() {
+  const choices = ["rock", "paper", "scissors"];
+  let random = Math.floor(Math.random() * 3);
+  return choices[random];
 }
