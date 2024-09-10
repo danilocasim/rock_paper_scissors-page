@@ -9,10 +9,10 @@ buttons.forEach((button) => {
   button.addEventListener("click", playRound);
 });
 
-function playRound(humanChoice) {
-  let computerScore = 0;
-  let humanScore = 0;
+let computerScore = 0;
+let humanScore = 0;
 
+function playRound(humanChoice) {
   let userChoice = humanChoice.target.id;
   let computerChoice = getComputerChoice();
   switch (userChoice) {
