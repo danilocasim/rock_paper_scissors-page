@@ -26,6 +26,7 @@ buttons.forEach((button) => {
 tryAgainBtn.addEventListener("click", () => {
   buttons.forEach((button) => {
     button.disabled = false;
+    tryAgain();
   });
 });
 
@@ -82,4 +83,13 @@ function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
   let random = Math.floor(Math.random() * 3);
   return choices[random];
+}
+
+function tryAgain() {
+  computerScore = 0;
+  humanScore = 0;
+
+  score.textContent = "Your Score: 0 Computer Score: 0";
+  result.textContent = "";
+  overall.textContent = "";
 }
